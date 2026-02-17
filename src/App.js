@@ -57,7 +57,8 @@ const [formData, setFormData] = useState({
   firstName: "",
   lastName: "",
   comments:"",
-  checkk:false 
+  checkk:false,
+  gender:""
 });
 
 // console.log(formData.firstName);
@@ -116,6 +117,34 @@ return (
       >
       </input>
     <label htmlFor='checkk'>AM I VISIBLE?</label>
+
+    <br/>
+    <br/>
+
+    {/* Radio 1 */}
+          <input
+            type="radio"
+            id="male"
+            name="gender"
+            value="male"
+            checked={formData.gender === "male"}
+            onChange={changeHandler}
+            required
+          />
+          <label htmlFor="male">Male</label>
+
+          <br />
+
+          {/* Radio 2 */}
+          <input
+            type="radio"
+            id="female"
+            name="gender"
+            value="female"
+            checked={formData.gender === "female"}
+            onChange={changeHandler}
+          />
+          <label htmlFor="female">Female</label>
 
 
 
