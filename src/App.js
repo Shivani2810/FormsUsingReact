@@ -55,14 +55,21 @@ function App() {
 
 const [formData, setFormData] = useState({
   firstName: "",
-  lastName: ""
+  lastName: "",
+  comments:"",
+  checkk:false 
 });
 
+// console.log(formData.firstName);
+console.log(formData);
+
 function changeHandler(event) {
+  // Destructuring for handling the checkbox
+  const {name,value,checked,type}=event.target
   setFormData((prevFormData) => {
     return {
       ...prevFormData,
-      [event.target.name]: event.target.value
+      [name]: type==='checkbox'?checked:value
     };
   });
 }
@@ -82,11 +89,38 @@ return (
 
       <input
         type="text"
-        placeholder="Enter last name"
-        value={formData.lastName}
+          value={formData.lastName}
         onChange={changeHandler}
         name="lastName"
       />
+
+      <br/>
+      <br/>
+
+      <textarea
+      placeholder='enter your comments'
+      onChange={changeHandler}
+      name="comments"
+      value={formData.comments }
+      />
+
+      <br/>
+      <br/>
+      
+      <input
+      type="checkbox"
+      onChange={changeHandler}
+      name="checkk"
+      id="isVisible"
+      checked= {formData.checkk}
+      >
+      </input>
+    <label htmlFor='checkk'>AM I VISIBLE?</label>
+
+
+
+
+
     </form>
   </div>
 );
