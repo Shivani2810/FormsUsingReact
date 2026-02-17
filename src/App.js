@@ -58,7 +58,8 @@ const [formData, setFormData] = useState({
   lastName: "",
   comments:"",
   checkk:false,
-  gender:""
+  gender:"",
+  country:""
 });
 
 // console.log(formData.firstName);
@@ -121,7 +122,10 @@ return (
     <br/>
     <br/>
 
-    {/* Radio 1 */}
+   <fieldset>
+          <legend>Select Gender</legend>
+
+          {/* Radio 1 */}
           <input
             type="radio"
             id="male"
@@ -145,6 +149,31 @@ return (
             onChange={changeHandler}
           />
           <label htmlFor="female">Female</label>
+
+        </fieldset>
+
+
+
+        <br />
+
+        {/* DROPDOWN */}
+        <label htmlFor="country">Select Country:</label>
+        <br />
+
+        <select
+          id="country"
+          name="country"
+          value={formData.country}
+          onChange={changeHandler}
+          required
+        >
+          <option value="">--Choose Country--</option>
+          <option value="india">India</option>
+          <option value="usa">USA</option>
+          <option value="uk">United Kingdom</option>
+          <option value="canada">Canada</option>
+        </select>
+
 
 
 
